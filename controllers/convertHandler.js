@@ -53,7 +53,22 @@ function ConvertHandler() {
 
   this.spellOutUnit = function (unit) {
     let result;
-    result = 'full unit string'
+    switch (unit) {
+      case 'gal': result = 'gallons';
+        break;
+      case 'L': result = 'liters';
+        break;
+      case 'mi': result = 'miles';
+        break;
+      case 'km': result = 'kilometers';
+        break;
+      case 'lbs': result = 'pounds';
+        break;
+      case 'kg': result = 'kilograms';
+        break;
+      default: result = 'not valid unit'
+        break;
+    }
     return result;
   };
 
