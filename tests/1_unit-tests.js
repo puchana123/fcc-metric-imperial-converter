@@ -83,27 +83,45 @@ suite('Unit Tests', function () {
     suite('Convert unit input', () => {
         // #11
         test('Convert gal to L', () => {
-            assert.fail();
+            const number = 1;
+            const unit = 'gal';
+            const output = convertHandler.convert(number,unit);
+            assert.equal(output, '3.78541', "1 gal = 3.78541 L");
         });
         // #12
         test('Convert L to gal', () => {
-            assert.fail();
+            const number = 1;
+            const unit = 'L';
+            const output = convertHandler.convert(number,unit);
+            assert.equal(output, '0.26417', "1 L = 0.26417 gal");
         });
         // #13
         test('Convert mi to km', () => {
-            assert.fail();
+            const number = 1;
+            const unit = 'mi';
+            const output = convertHandler.convert(number,unit);
+            assert.equal(output, '1.60934', "1 mi = 1.60934 km");
         });
         // #14
         test('Convert km to mi', () => {
-            assert.fail();
+            const number = 1;
+            const unit = 'km';
+            const output = convertHandler.convert(number,unit);
+            assert.equal(output, '0.62137', "1 km = 0.62137 mi");
         });
         // #15
         test('Convert lbs to kg', () => {
-            assert.fail();
+            const number = 1;
+            const unit = 'lbs';
+            const output = convertHandler.convert(number,unit);
+            assert.equal(output, '0.45359', "1 lbs = 0.45359 kg");
         });
         // #16
         test('Convert kg to lbs', () => {
-            assert.fail();
+            const number = 1;
+            const unit = 'kg';
+            const output = convertHandler.convert(number,unit);
+            assert.equal(output, '2.20462', "1 kg = 2.20462 lbs");
         });
     });
 });
