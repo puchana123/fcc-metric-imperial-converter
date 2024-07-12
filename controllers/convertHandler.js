@@ -4,10 +4,12 @@ function ConvertHandler() {
     let result;
     const divide_count = input.match(/\//g)
     if (divide_count === null || divide_count.length === 1) {
-      result = eval(input.match(/^[0-9]+(\.[0-9]+)?(\/[0-9]+(\.[0-9]+)?)?/g)[0]);
+      const number = input.match(/^[0-9]+(\.[0-9]+)?(\/[0-9]+(\.[0-9]+)?)?/g);
+      result = number ? eval(number[0]) : 1;
+
     } else {
-      return false
-    }
+      return false;
+    };
 
     return result;
   };

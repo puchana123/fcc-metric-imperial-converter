@@ -13,20 +13,25 @@ module.exports = function (app) {
     if (!input) {
       res.send('invalid unit')
       return;
-    }
-
+    };
+    // check input number
     const initNum = convertHandler.getNum(input);
-    const initUnit = convertHandler.getUnit(input);
-    const returnNum = convertHandler.convert(initNum,initUnit);
-    const returnUnit = convertHandler.getReturnUnit(initUnit);
-  
-    const returnString = convertHandler.getString(initNum,initUnit,returnNum,returnUnit);
+    if (initNum === false) {
+      res.send('invalid number');
+      return;
+    };
 
-    res.send({ 
-      initNum: initNum, 
-      initUnit: initUnit, 
-      returnNum: returnNum, 
-      returnUnit: returnUnit, 
+    const initUnit = convertHandler.getUnit(input);
+    const returnNum = convertHandler.convert(initNum, initUnit);
+    const returnUnit = convertHandler.getReturnUnit(initUnit);
+
+    const returnString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
+
+    res.send({
+      initNum: initNum,
+      initUnit: initUnit,
+      returnNum: returnNum,
+      returnUnit: returnUnit,
       string: returnString
     });
   });
