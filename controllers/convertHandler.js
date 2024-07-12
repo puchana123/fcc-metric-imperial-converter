@@ -16,7 +16,16 @@ function ConvertHandler() {
 
   this.getUnit = function (input) {
     let result;
-    result = 'init unit'
+    const word = input.match(/[a-zA-Z]+/g);
+    if (!word) {
+      return false;
+    } else {
+      const valid_unit = word[0].match(/^(gal|l|mi|km|lbs|kg)$/gi);
+      if (!valid_unit) {
+        return false;
+      };
+      result = valid_unit[0];
+    }
     return result;
   };
 

@@ -20,8 +20,12 @@ module.exports = function (app) {
       res.send('invalid number');
       return;
     };
-
+    // check input unit
     const initUnit = convertHandler.getUnit(input);
+    if (initUnit === false) {
+      res.send('invalid unit');
+      return;
+    };
     const returnNum = convertHandler.convert(initNum, initUnit);
     const returnUnit = convertHandler.getReturnUnit(initUnit);
 
