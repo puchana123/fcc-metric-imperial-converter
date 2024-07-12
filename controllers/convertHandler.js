@@ -24,14 +24,30 @@ function ConvertHandler() {
       if (!valid_unit) {
         return false;
       };
-      result = valid_unit[0];
-    }
+      result = valid_unit[0].toLowerCase() === 'l' ? 'L' : valid_unit[0].toLowerCase();
+
+    };
     return result;
   };
 
   this.getReturnUnit = function (initUnit) {
     let result;
-    result = 'return unit'
+    switch (initUnit) {
+      case 'gal': result = 'L';
+        break;
+      case 'L': result = 'gal';
+        break;
+      case 'mi': result = 'km';
+        break;
+      case 'km': result = 'mi';
+        break;
+      case 'lbs': result = 'kg';
+        break;
+      case 'kg': result = 'lbs';
+        break;
+      default: result = 'not valid unit'
+        break;
+    }
     return result;
   };
 

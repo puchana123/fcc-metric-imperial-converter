@@ -10,10 +10,7 @@ module.exports = function (app) {
   app.get('/api/convert', async (req, res) => {
     // get input query
     const { input } = req.query;
-    if (!input) {
-      res.send('invalid unit')
-      return;
-    };
+
     // check input number
     const initNum = convertHandler.getNum(input);
     if (initNum === false) {
