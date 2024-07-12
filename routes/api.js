@@ -11,15 +11,16 @@ module.exports = function (app) {
     // get input query
     const { input } = req.query;
 
-    // check input number
     const initNum = convertHandler.getNum(input);
-    if (initNum === false) {
+    const initUnit = convertHandler.getUnit(input);
+    // check input number & unit
+    if (initNum === false && initUnit === false) {
+      res.send('invalid number and unit');
+      return;
+    } else if (initNum === false) {
       res.send('invalid number');
       return;
-    };
-    // check input unit
-    const initUnit = convertHandler.getUnit(input);
-    if (initUnit === false) {
+    } else if (initUnit === false) {
       res.send('invalid unit');
       return;
     };
