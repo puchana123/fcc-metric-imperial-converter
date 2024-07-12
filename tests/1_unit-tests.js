@@ -14,15 +14,21 @@ suite('Unit Tests', function(){
         });
         // #2
         test('Read a decimal number input', ()=>{
-            assert.fail();
+            const decimal_number = '123.45';
+            const output = convertHandler.getNum(decimal_number);
+            assert.equal(output, decimal_number, "read a decimal number");
         });
         // #3
         test('Read a fractional input', ()=>{
-            assert.fail();
+            const fraction_number = '1/2';
+            const output = convertHandler.getNum(fraction_number);
+            assert.equal(output, '0.5', "read a fractional number");
         });
         // #4
         test('Read a fractional input with a decimal', ()=>{
-            assert.fail();
+            const fraction_number = '1.5/2';
+            const output = convertHandler.getNum(fraction_number);
+            assert.equal(output, '0.75', "read a fractional number");
         });
     });
 // -------------------------------------------------------------
